@@ -1,32 +1,25 @@
-import * as basicLightbox from 'basiclightbox';
+// import * as basicLightbox from 'basiclightbox';
 import { galleryItems } from './gallery-items.js';
 
-console.log(galleryItems);
+const ul = document.querySelector('ul');
 
-const divRef = document.querySelector(".gallery");
+const liInUl = galleryItems.map(item =>
+    `
+        <li class="gallery__item">
+    <a class="gallery__link" href='${item.original}'>
+    <img
+        class="gallery__image"
+        src='${item.preview}'
+        data-source='${item.original}'
+        alt='${item.description}'
+    />
+    </a>
+</li>
+    `).join('');
 
-function createGallaryMarkup(items) {
-    return items
-    .map(
-        (item) => `<li class="gallery__item">
-        <a class="gallery__link" href="${item.original}">
-            <img
-                class="gallery__image"
-                src="${item.preview}"
-                data-source="${item.original}"
-                alt="${image.description}"
-            />
-            </a>
-        </li>`
-    )
-    .join("");
-}
+ul.insertAdjacentHTML('beforeend' , liInUl);
 
-const addGallaryMarkup = createGallaryMarkup(galleryItems);
-
-divRef.insertAdjacentHTML = ('beforeend' , addGallaryMarkup);
-
-divRef.addEventListener("click", onImageClick);
+ul.addEventListener('click' , onImageClick);
 
 function onImageClick(evt) {
     blocStandartAction(evt);
@@ -40,13 +33,20 @@ function onImageClick(evt) {
     `);
     instance.show();
 
-    divRef.addEventListener("keydown", (evt) => {
+    ul.addEventListener("keydown", (evt) => {
     if (evt.code === "Escape") {
         instance.close();
         }
     });
 }
 
+
 function blocStandartAction(evt) {
     evt.preventDefault();
 }
+
+console.log(galleryItems);
+
+
+
+
