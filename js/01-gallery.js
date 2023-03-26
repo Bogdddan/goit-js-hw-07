@@ -1,4 +1,4 @@
-// import * as basicLightbox from 'basiclightbox';
+import * as basicLightbox from 'basiclightbox';
 import { galleryItems } from './gallery-items.js';
 
 console.log(galleryItems);
