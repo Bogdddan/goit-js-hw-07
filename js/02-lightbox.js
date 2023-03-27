@@ -1,38 +1,24 @@
 import { galleryItems } from './gallery-items.js';
-// Change code below this line
 
-const ul = document.querySelector('ul');
+const ul = document.querySelector('.gallery');
 
-const liInUl = galleryItems.map(item =>
-    `
+const liInUl = galleryItems
+    .map(
+    ({ preview, original, description }) => `
         <li class="gallery__item">
-    <a class="gallery__link" href='${item.original}'>
-    <img
-        class="gallery__image"
-        src='${item.preview}'
-        data-source='${item.original}'
-        alt='${item.description}'
-    />
-    </a>
-</li>
-    `).join('');
+            <a class="gallery__link" href="${original}">
+                <img class="gallery__image" src="${preview}" alt="${description}" />
+            </a>
+        </li>
+    `
+).join('');
 
-    ul.insertAdjacentHTML('beforeend' , liInUl);
+ul.insertAdjacentHTML('beforeend', liInUl);
 
-    ul.addEventListener('click' , onImageClick);
-
-    function onImageClick(evt) {
-        prevDefault(evt);
-
-        if (evt.target.nodeName !== "IMG") {
-            return;
-            }
-
-        
-    }
-
-    function prevDefault(e) {
-        e.preventDefault(); 
-    }
+const lightbox = new SimpleLightbox('.gallery a', {
+    captionType: 'attr',
+    captionsData: 'alt',
+    captionDelay: 250,
+});
 
 console.log(galleryItems);
