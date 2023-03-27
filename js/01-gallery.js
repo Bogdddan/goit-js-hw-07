@@ -1,4 +1,3 @@
-// import * as basicLightbox from 'basiclightbox';
 import { galleryItems } from './gallery-items.js';
 
 const ul = document.querySelector('ul');
