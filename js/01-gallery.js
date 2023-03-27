@@ -21,7 +21,7 @@ ul.insertAdjacentHTML('beforeend' , liInUl);
 ul.addEventListener('click' , onImageClick);
 
 function onImageClick(evt) {
-    prevDefault(evt);
+    const prevDefaul = evt.preventDefault();
 
     if (evt.target.nodeName !== "IMG") {
     return;
@@ -37,11 +37,6 @@ function onImageClick(evt) {
         instance.close();
         }
     });
-}
-
-
-function prevDefault(evt) {
-    evt.preventDefault();
 }
 
 console.log(galleryItems);
