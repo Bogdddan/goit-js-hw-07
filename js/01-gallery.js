@@ -21,7 +21,7 @@ ul.insertAdjacentHTML('beforeend' , liInUl);
 ul.addEventListener('click' , onImageClick);
 
 function onImageClick(evt) {
-    blocStandartAction(evt);
+    prevDefault(evt);
 
     if (evt.target.nodeName !== "IMG") {
     return;
@@ -40,7 +40,7 @@ function onImageClick(evt) {
 }
 
 
-function blocStandartAction(evt) {
+function prevDefault(evt) {
     evt.preventDefault();
 }
 
