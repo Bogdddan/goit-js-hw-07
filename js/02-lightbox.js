@@ -27,6 +27,8 @@ const liInUl = galleryItems.map(item =>
         if (evt.target.nodeName !== "IMG") {
             return;
             }
+
+        
     }
 
     function prevDefault(e) {
