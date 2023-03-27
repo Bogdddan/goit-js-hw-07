@@ -22,7 +22,15 @@ const liInUl = galleryItems.map(item =>
     ul.addEventListener('click' , onImageClick);
 
     function onImageClick(evt) {
-        
+        prevDefault(evt);
+
+        if (evt.target.nodeName !== "IMG") {
+            return;
+            }
+    }
+
+    function prevDefault(e) {
+        e.preventDefault(); 
     }
 
 console.log(galleryItems);
