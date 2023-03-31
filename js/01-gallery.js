@@ -35,6 +35,7 @@ function onImageClick(evt) {
     ul.addEventListener("keydown", (evt) => {
     if (evt.code === "Escape") {
         instance.close();
+        removeEventListener();
         }
     });
 }
